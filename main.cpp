@@ -19,7 +19,7 @@ int affiche(vector<int> v)
     return 0;
 }
 string setmotadeviner(){
-    int i=rand()%12+1;
+    int i=rand()%50+1;
 ifstream f("fichier.txt");
 string m;
 for (int j=1; j<i; j++ ) {
@@ -44,15 +44,15 @@ int main (){
 	int nbessai=0;bool test=false;
 	do{
     cout<<"le mot commence par la lettre  "<<motadeviner[0]<<endl;
-	cout<<"Saisir votre essai numéro:"<< nbessai <<endl;
+	cout<<"Saisir votre essai numÃ©ro:"<< nbessai <<endl;
 
 		cin>>mot;
 		if (mot==motadeviner){test=true;break;}
     Tentative t(mot);
     if (t.controlesaisie(motadeviner))
-        { nbessai++;//essai validé
+        { nbessai++;//essai validÃ©
 
-     vector<int> red; //recherche des lettres bien placées
+     vector<int> red; //recherche des lettres bien placÃ©es
      for (int i=0;i<7;i++){
             Lettre j(mot[i],i,blanc);
       for (int k=0;k<7;k++){
@@ -61,7 +61,7 @@ int main (){
             if (j.getCouleur()==rouge) {red.push_back(k);break;}
      }
      }
-     vector<int> yellow;//recherche des lettres mal placées
+     vector<int> yellow;//recherche des lettres mal placÃ©es
 	for (int i=0;i<7;i++)
     {   Lettre j(mot[i],i,blanc);
         //calcul de l'occurence de chaque lettre dans le mot a deviner
@@ -87,7 +87,7 @@ int main (){
     else {cout<<"essayer de nouveau"<<endl;}
 	}//fin parcours de tous les essais
 	while (nbessai<7);
-	if (test) {cout <<"BRAVO !! Vous avez gagné "<<endl;}
+	if (test) {cout <<"BRAVO !! Vous avez gagnÃ© "<<endl;}
         else {cout<<"Dommage, vous avez perdu"<<endl;}
     int x;
     x=7-nbessai;
